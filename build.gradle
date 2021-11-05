@@ -22,6 +22,8 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     testCompile "org.spockframework:spock-core:2.0-groovy-3.0"
+
+    compile group: 'org.codehaus.groovy', name: 'groovy-yaml', version: '3.0.4'
 }
 
 test {
