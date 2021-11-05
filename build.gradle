@@ -1,0 +1,32 @@
+apply plugin: "groovy"
+
+description = "Spock Framework - Atomic UI Scenarios"
+
+sourceCompatibility = 1.8
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+}
+
+dependencies {
+    testImplementation 'com.codeborne:selenide:6.0.3'
+
+    implementation "org.codehaus.groovy:groovy:3.0.8"
+    testImplementation platform("org.spockframework:spock-bom:2.0-groovy-3.0")
+    testImplementation "org.spockframework:spock-core"
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testCompile "org.spockframework:spock-core:2.0-groovy-3.0"
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
