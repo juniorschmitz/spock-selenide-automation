@@ -1,5 +1,7 @@
 apply plugin: "groovy"
 
+defaultTasks 'prd'
+
 description = "Spock Framework - Atomic UI Scenarios"
 
 sourceCompatibility = 1.8
@@ -27,6 +29,14 @@ dependencies {
 }
 
 test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+task prd(type: Test) {
+    systemProperties['environment'] = 'qa'
     useJUnitPlatform()
     testLogging {
         events "passed", "skipped", "failed"

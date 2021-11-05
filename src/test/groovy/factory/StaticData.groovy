@@ -5,10 +5,11 @@ class StaticData {
     def data;
 
     StaticData() {
-        this.data = new YamlSlurper().parseText( new File(System.getProperty("user.dir") + "/src/test/resources/data/prd/data.yaml").getText())
+        def environment = (System.getProperty("environment") == null) ? 'prd' : System.getProperty("environment")
+        this.data = new YamlSlurper().parseText( new File("${System.getProperty('user.dir')}/src/test/resources/data/${environment}/data.yaml").getText())
     }
 
     def getData(key) {
-        return data[key]
+        return data[key];
     }
 }
