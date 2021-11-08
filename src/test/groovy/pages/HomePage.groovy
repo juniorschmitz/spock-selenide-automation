@@ -22,5 +22,6 @@ class HomePage {
 
     def accessAuthenticationPage() {
         linkAccessLogin.click();
+        return new LoginPage();
     }
 }
