@@ -14,6 +14,7 @@ class HomePage {
 
     def execSearch(String query) {
         inputSearch.val(query).pressEnter();
+        return new SearchPage();
     }
 
     def hasDisplayed() {
