@@ -11,7 +11,10 @@ class HomeTests extends Specification {
     }
 
     def "should_access_home"() {
-        when: homePage.load();
-        then: homePage.hasDisplayed() == true;
+        when:
+            homePage.load();
+
+        then:
+            homePage.hasDisplayed() == true;
     }
 }
