@@ -7,7 +7,12 @@ class SearchPage {
     private ElementsCollection productResults = $$('.ajax_block_product');
 
     def resultsCount() {
-        productResults.shouldHave(CollectionCondition.sizeGreaterThan(1));
+        sleep(1000);
         return productResults.size()
+    }
+
+    def accessProductPage() {
+        sleep(1000);
+        productResults.first().click();
     }
 }
