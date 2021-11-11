@@ -18,7 +18,7 @@ public class ProductPageTests extends Specification {
         productPage = new ProductPage();
     }
 
-    def "should_search_for_valid_product"() {
+    def "should_be_able_to_access_product_page"() {
         given:
             def product = staticData.getData('search_product');
 
@@ -29,5 +29,19 @@ public class ProductPageTests extends Specification {
 
         then:
             productPage.hasDisplayed() == true;
+    }
+
+    def "should_be_able_to_add_product_to_cart"() {
+        given:
+            def product = staticData.getData('search_product');
+
+        when:
+            homePage.load()
+                .execSearch(product)
+                .accessProductPage()
+                .addProductToCart();
+
+        then:
+            productPage.hasAddedProductToCart() == true;
     }
 }
