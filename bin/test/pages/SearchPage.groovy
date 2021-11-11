@@ -14,5 +14,6 @@ class SearchPage {
     def accessProductPage() {
         sleep(1000);
         productResults.first().click();
+        return new ProductPage();
     }
 }
