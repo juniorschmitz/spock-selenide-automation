@@ -1,6 +1,8 @@
 package pages
 
-import com.codeborne.selenide.*;
+import com.codeborne.selenide.*
+import org.openqa.selenium.chrome.ChromeOptions;
+
 import static com.codeborne.selenide.Selenide.*;
 
 class HomePage {
@@ -8,7 +10,7 @@ class HomePage {
     private SelenideElement linkAccessLogin = $('a.login');
 
     def load() {
-        open("http://automationpractice.com/");
+        open("/index.php");
         return this;
     }
 
@@ -18,6 +20,7 @@ class HomePage {
     }
 
     def hasDisplayed() {
+        inputSearch.shouldBe(Condition.visible);
         return inputSearch.is(Condition.visible);
     }
 

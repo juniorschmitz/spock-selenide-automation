@@ -9,6 +9,7 @@ class RegistrationPage {
     private SelenideElement formCreateAccount = $('form#account-creation_form');
 
     def hasDisplayed() {
+        formCreateAccount.shouldBe(Condition.visible);
         return formCreateAccount.is(Condition.visible);
     }
 }

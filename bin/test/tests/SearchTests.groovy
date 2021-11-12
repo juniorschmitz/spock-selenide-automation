@@ -1,21 +1,8 @@
 package tests
 
-import factory.StaticData
-import pages.HomePage
-import pages.SearchPage
-import spock.lang.Specification
+import common.BaseTest
 
-class SearchTests extends Specification {
-    private HomePage homePage;
-    private SearchPage searchPage;
-    private StaticData staticData;
-
-    def setup() {
-        homePage = new HomePage();
-        searchPage = new SearchPage();
-        staticData = new StaticData();
-    }
-
+class SearchTests extends BaseTest {
     def "should_search_for_valid_product"() {
         given:
             def product = staticData.getData('search_product');

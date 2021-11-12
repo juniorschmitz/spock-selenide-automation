@@ -9,6 +9,7 @@ class MyAccountPage {
     private SelenideElement infoAccount = $('.info-account');
 
     def isLoggedIn() {
+        infoAccount.shouldBe(Condition.visible);
         return infoAccount.is(Condition.visible);
     }
 }

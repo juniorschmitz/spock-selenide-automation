@@ -1,20 +1,8 @@
 package tests
 
-import factory.StaticData
-import pages.*
-import spock.lang.Specification
+import common.BaseTest
 
-class CartLoggedOutTests extends Specification {
-    private HomePage homePage;
-    private CartPage cartPage;
-    private StaticData staticData;
-
-    def setup() {
-        homePage = new HomePage();
-        cartPage = new CartPage();
-        staticData = new StaticData();
-    }
-
+class CartLoggedOutTests extends BaseTest {
     def "should_display_cart_with_products"() {
         given:
             def product = staticData.getData('search_product');
@@ -48,10 +36,10 @@ class CartLoggedOutTests extends Specification {
 
     def "should_be_able_to_increase_product_quantity"() {
         given:
-        def product = staticData.getData('search_product');
+            def product = staticData.getData('search_product');
 
         when:
-        homePage.load()
+            homePage.load()
                 .execSearch(product)
                 .accessProductPage()
                 .addProductToCart()
@@ -64,10 +52,10 @@ class CartLoggedOutTests extends Specification {
 
     def "should_be_able_to_decrease_product_quantity"() {
         given:
-        def product = staticData.getData('search_product');
+            def product = staticData.getData('search_product');
 
         when:
-        homePage.load()
+            homePage.load()
                 .execSearch(product)
                 .accessProductPage()
                 .addProductToCart()
@@ -76,15 +64,15 @@ class CartLoggedOutTests extends Specification {
                 .decreaseQuantity();
 
         then:
-        cartPage.hasChangedQuantity('1') == true;
+            cartPage.hasChangedQuantity('1') == true;
     }
 
     def "should_be_able_to_remove_product_by_decreasing_quantity"() {
         given:
-        def product = staticData.getData('search_product');
+            def product = staticData.getData('search_product');
 
         when:
-        homePage.load()
+            homePage.load()
                 .execSearch(product)
                 .accessProductPage()
                 .addProductToCart()

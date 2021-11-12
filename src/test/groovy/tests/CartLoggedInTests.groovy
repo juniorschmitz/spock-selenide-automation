@@ -1,19 +1,9 @@
 package tests
 
-import factory.StaticData
-import pages.*
-import spock.lang.Specification
+import common.BaseTest
 
-class CartLoggedInTests extends Specification {
-    private HomePage homePage;
-    private CartPage cartPage;
-    private StaticData staticData;
-
+class CartLoggedInTests extends BaseTest {
     def setup() {
-        homePage = new HomePage();
-        cartPage = new CartPage();
-        staticData = new StaticData();
-
         homePage.load()
                 .accessAuthenticationPage()
                 .loginWith('potato@testezap.com', '123456&');
@@ -21,25 +11,25 @@ class CartLoggedInTests extends Specification {
 
     def "should_display_cart_with_products"() {
         given:
-        def product = staticData.getData('search_product');
+            def product = staticData.getData('search_product');
 
         when:
-        homePage.load()
+            homePage.load()
                 .execSearch(product)
                 .accessProductPage()
                 .addProductToCart()
                 .proceedToCheckout();
 
         then:
-        cartPage.hasDisplayed() == true;
+            cartPage.hasDisplayed() == true;
     }
 
     def "should_be_able_to_remove_product_from_cart"() {
         given:
-        def product = staticData.getData('search_product');
+            def product = staticData.getData('search_product');
 
         when:
-        homePage.load()
+            homePage.load()
                 .execSearch(product)
                 .accessProductPage()
                 .addProductToCart()
@@ -47,15 +37,15 @@ class CartLoggedInTests extends Specification {
                 .removeProduct();
 
         then:
-        cartPage.hasDeletedProduct() == true;
+            cartPage.hasDeletedProduct() == true;
     }
 
     def "should_be_able_to_increase_product_quantity"() {
         given:
-        def product = staticData.getData('search_product');
+            def product = staticData.getData('search_product');
 
         when:
-        homePage.load()
+            homePage.load()
                 .execSearch(product)
                 .accessProductPage()
                 .addProductToCart()
@@ -63,15 +53,15 @@ class CartLoggedInTests extends Specification {
                 .increaseQuantity();
 
         then:
-        cartPage.hasChangedQuantity('2') == true;
+            cartPage.hasChangedQuantity("2") == true;
     }
 
     def "should_be_able_to_decrease_product_quantity"() {
         given:
-        def product = staticData.getData('search_product');
+            def product = staticData.getData('search_product');
 
         when:
-        homePage.load()
+            homePage.load()
                 .execSearch(product)
                 .accessProductPage()
                 .addProductToCart()
@@ -80,15 +70,15 @@ class CartLoggedInTests extends Specification {
                 .decreaseQuantity();
 
         then:
-        cartPage.hasChangedQuantity('1') == true;
+            cartPage.hasChangedQuantity("1") == true;
     }
 
     def "should_be_able_to_remove_product_by_decreasing_quantity"() {
         given:
-        def product = staticData.getData('search_product');
+            def product = staticData.getData('search_product');
 
         when:
-        homePage.load()
+            homePage.load()
                 .execSearch(product)
                 .accessProductPage()
                 .addProductToCart()
@@ -96,6 +86,6 @@ class CartLoggedInTests extends Specification {
                 .decreaseQuantity();
 
         then:
-        cartPage.hasDeletedProduct() == true;
+            cartPage.hasDeletedProduct() == true;
     }
 }

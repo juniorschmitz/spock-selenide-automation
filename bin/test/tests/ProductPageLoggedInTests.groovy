@@ -1,21 +1,12 @@
-package tests;
+package tests
 
-import factory.StaticData;
-import pages.HomePage;
-import pages.ProductPage;
-import pages.SearchPage;
-import spock.lang.Specification;
+import common.BaseTest
 
-public class ProductPageTests extends Specification {
-    private HomePage homePage;
-    private SearchPage searchPage;
-    private StaticData staticData;
-    private ProductPage productPage;
-
+public class ProductPageLoggedInTests extends BaseTest {
     def setup() {
-        homePage = new HomePage();
-        staticData = new StaticData();
-        productPage = new ProductPage();
+        homePage.load()
+                .accessAuthenticationPage()
+                .loginWith('potato@testezap.com', '123456&');
     }
 
     def "should_be_able_to_access_product_page"() {

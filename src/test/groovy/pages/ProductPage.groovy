@@ -10,10 +10,12 @@ public class ProductPage {
     private SelenideElement btnProceedToCheckout = $('a[title="Proceed to checkout"]')
 
     def hasDisplayed() {
+        btnAddToCart.shouldBe(Condition.visible);
         return btnAddToCart.is(Condition.visible);
     }
 
     def hasAddedProductToCart() {
+        btnProceedToCheckout.shouldBe(Condition.visible);
         return btnProceedToCheckout.is(Condition.visible);
     }
 
