@@ -4,9 +4,10 @@ import common.BaseTest
 
 public class ProductPageLoggedInTests extends BaseTest {
     def setup() {
+        def user = staticData.getData('valid_product_user');
         homePage.load()
                 .accessAuthenticationPage()
-                .loginWith('potato@testezap.com', '123456&');
+                .loginWith(user['email'], user['password']);
     }
 
     def "should_be_able_to_access_product_page"() {

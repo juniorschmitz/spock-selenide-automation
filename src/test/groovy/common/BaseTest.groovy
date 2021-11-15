@@ -32,7 +32,7 @@ class BaseTest extends Specification {
     def setup() {
         Configuration.browser = "chrome";
         Configuration.baseUrl = "http://automationpractice.com";
-        Configuration.headless = false;
+        Configuration.headless = true;
         Configuration.timeout = 10000;
 
         homePage = new HomePage();

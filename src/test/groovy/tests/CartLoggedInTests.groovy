@@ -4,9 +4,10 @@ import common.BaseTest
 
 class CartLoggedInTests extends BaseTest {
     def setup() {
+        def user = staticData.getData('valid_cart_user');
         homePage.load()
                 .accessAuthenticationPage()
-                .loginWith('potato@testezap.com', '123456&');
+                .loginWith(user['email'], user['password']);
     }
 
     def "should_display_cart_with_products"() {

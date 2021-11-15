@@ -30,15 +30,35 @@ dependencies {
 
 test {
     useJUnitPlatform()
+
+    maxParallelForks = Runtime.runtime.availableProcessors().intdiv(2) ?: 1
+    systemProperties = [
+            'junit.jupiter.execution.parallel.enabled': true,
+            'junit.jupiter.execution.parallel.config.strategy': 'fixed',
+            'junit.jupiter.execution.parallel.config.fixed.parallelism': 3
+    ]
+
     testLogging {
         events "passed", "skipped", "failed"
     }
+
+    forkEvery = 1
 }
 
 task prd(type: Test) {
     systemProperties['environment'] = 'qa'
     useJUnitPlatform()
+
+    maxParallelForks = Runtime.runtime.availableProcessors().intdiv(2) ?: 1
+    systemProperties = [
+            'junit.jupiter.execution.parallel.enabled': true,
+            'junit.jupiter.execution.parallel.config.strategy': 'fixed',
+            'junit.jupiter.execution.parallel.config.fixed.parallelism': 3
+    ]
+
     testLogging {
         events "passed", "skipped", "failed"
     }
+
+    forkEvery = 1
 }

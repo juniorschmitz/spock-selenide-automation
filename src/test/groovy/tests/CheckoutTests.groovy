@@ -4,9 +4,10 @@ import common.BaseTest
 
 class CheckoutTests extends BaseTest {
     def setup() {
+        def user = staticData.getData('valid_checkout_user');
         homePage.load()
                 .accessAuthenticationPage()
-                .loginWith('potato@testezap.com', '123456&');
+                .loginWith(user['email'], user['password']);
     }
 
     def "should_finish_checkout_with_check"() {
