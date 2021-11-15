@@ -26,7 +26,7 @@ class CartLoggedInTests extends BaseTest {
 
     def "should_be_able_to_remove_product_from_cart"() {
         given:
-            def product = staticData.getData('search_product');
+            def product = staticData.getData('search_product_2');
 
         when:
             homePage.load()
@@ -42,7 +42,7 @@ class CartLoggedInTests extends BaseTest {
 
     def "should_be_able_to_increase_product_quantity"() {
         given:
-            def product = staticData.getData('search_product');
+            def product = staticData.getData('search_product_3');
 
         when:
             homePage.load()
@@ -58,7 +58,7 @@ class CartLoggedInTests extends BaseTest {
 
     def "should_be_able_to_decrease_product_quantity"() {
         given:
-            def product = staticData.getData('search_product');
+            def product = staticData.getData('search_product_2');
 
         when:
             homePage.load()

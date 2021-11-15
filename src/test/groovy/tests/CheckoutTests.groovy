@@ -30,7 +30,7 @@ class CheckoutTests extends BaseTest {
 
     def "should_finish_checkout_with_bank_wire"() {
         given:
-        def product = staticData.getData('search_product');
+        def product = staticData.getData('search_product_2');
 
         when:
         homePage.load()

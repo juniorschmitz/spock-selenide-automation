@@ -5,7 +5,7 @@ import common.BaseTest;
 public class ProductPageLoggedOutTests extends BaseTest {
     def "should_be_able_to_access_product_page"() {
         given:
-            def product = staticData.getData('search_product');
+            def product = staticData.getData('search_product_3');
 
         when:
             homePage.load()

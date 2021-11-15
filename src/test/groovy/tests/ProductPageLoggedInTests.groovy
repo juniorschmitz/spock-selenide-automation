@@ -24,7 +24,7 @@ public class ProductPageLoggedInTests extends BaseTest {
 
     def "should_be_able_to_add_product_to_cart"() {
         given:
-            def product = staticData.getData('search_product');
+            def product = staticData.getData('search_product_2');
 
         when:
             homePage.load()

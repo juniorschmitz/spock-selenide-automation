@@ -23,10 +23,13 @@ class AuthenticationTests extends BaseTest {
     }
 
     def "should_login"() {
+        given:
+            def user = staticData.getData('valid_user');
+
         when:
             homePage.load()
                     .accessAuthenticationPage()
-                    .loginWith('potato@testezap.com', '123456&');
+                    .loginWith(user['email'], user['password']);
 
         then:
             myAccountPage.shouldBeLoggedIn();

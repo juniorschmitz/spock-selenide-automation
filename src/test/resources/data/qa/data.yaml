@@ -1,1 +1,6 @@
-search_product: "shirt"
+search_product: "dress"
+search_product_2: "blouse"
+search_product_3: "shirt"
+valid_user:
+  email: "potato@testezap.com"
+  password: "123456&"
