@@ -6,7 +6,9 @@ import com.codeborne.selenide.webdriver.ChromeDriverFactory
 import factory.StaticData
 import org.openqa.selenium.chrome.ChromeOptions
 import org.openqa.selenium.remote.DesiredCapabilities
-import pages.CartPage;
+import pages.CartPage
+import pages.CheckoutConfirmationPage
+import pages.CheckoutPage;
 import pages.HomePage
 import pages.LoginPage
 import pages.MyAccountPage
@@ -23,12 +25,14 @@ class BaseTest extends Specification {
     protected static MyAccountPage myAccountPage;
     protected static ProductPage productPage;
     protected static CartPage cartPage;
+    protected static CheckoutPage checkoutPage;
+    protected static CheckoutConfirmationPage checkoutConfirmationPage;
     protected static StaticData staticData;
 
     def setup() {
         Configuration.browser = "chrome";
         Configuration.baseUrl = "http://automationpractice.com";
-        Configuration.headless = true;
+        Configuration.headless = false;
         Configuration.timeout = 10000;
 
         homePage = new HomePage();
@@ -38,6 +42,8 @@ class BaseTest extends Specification {
         myAccountPage = new MyAccountPage();
         productPage = new ProductPage();
         cartPage = new CartPage();
+        checkoutPage = new CheckoutPage();
+        checkoutConfirmationPage = new CheckoutConfirmationPage();
         staticData = new StaticData();
     }
 

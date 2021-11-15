@@ -7,7 +7,7 @@ import com.codeborne.selenide.conditions.ExactText
 import static com.codeborne.selenide.Selenide.$
 
 class CartPage {
-    private SelenideElement btnProceedToCheckout = $('p.cart_navigation  a[title="Proceed to checkout"]');
+    private SelenideElement btnProceedToCheckout = $('p.cart_navigation a[title="Proceed to checkout"]');
     private SelenideElement iconDeleteProduct = $('a[title="Delete"]');
     private SelenideElement messageDeletedProduct = $('.alert-warning');
     private SelenideElement btnIncreaseQuantity = $('i.icon-plus');
@@ -46,5 +46,10 @@ class CartPage {
 
     def hasChangedQuantity(expectedQuantity) {
         quantityProduct.shouldHave(Condition.exactValue(expectedQuantity));
+    }
+
+    def goToAddressSelect() {
+        btnProceedToCheckout.click();
+        return new CheckoutPage();
     }
 }
