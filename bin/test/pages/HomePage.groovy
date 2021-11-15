@@ -19,9 +19,8 @@ class HomePage {
         return new SearchPage();
     }
 
-    def hasDisplayed() {
+    def shouldBeDisplayed() {
         inputSearch.shouldBe(Condition.visible);
-        return inputSearch.is(Condition.visible);
     }
 
     def accessAuthenticationPage() {

@@ -21,7 +21,7 @@ class CartLoggedInTests extends BaseTest {
                 .proceedToCheckout();
 
         then:
-            cartPage.hasDisplayed() == true;
+            cartPage.shouldBeDisplayed();
     }
 
     def "should_be_able_to_remove_product_from_cart"() {
@@ -37,7 +37,7 @@ class CartLoggedInTests extends BaseTest {
                 .removeProduct();
 
         then:
-            cartPage.hasDeletedProduct() == true;
+            cartPage.hasDeletedProduct();
     }
 
     def "should_be_able_to_increase_product_quantity"() {
@@ -53,7 +53,7 @@ class CartLoggedInTests extends BaseTest {
                 .increaseQuantity();
 
         then:
-            cartPage.hasChangedQuantity("2") == true;
+            cartPage.hasChangedQuantity("2");
     }
 
     def "should_be_able_to_decrease_product_quantity"() {
@@ -70,7 +70,7 @@ class CartLoggedInTests extends BaseTest {
                 .decreaseQuantity();
 
         then:
-            cartPage.hasChangedQuantity("1") == true;
+            cartPage.hasChangedQuantity("1");
     }
 
     def "should_be_able_to_remove_product_by_decreasing_quantity"() {
@@ -86,6 +86,6 @@ class CartLoggedInTests extends BaseTest {
                 .decreaseQuantity();
 
         then:
-            cartPage.hasDeletedProduct() == true;
+            cartPage.hasDeletedProduct();
     }
 }

@@ -8,6 +8,6 @@ class HomeTests extends BaseTest {
             homePage.load();
 
         then:
-            homePage.hasDisplayed() == true;
+            homePage.shouldBeDisplayed();
     }
 }

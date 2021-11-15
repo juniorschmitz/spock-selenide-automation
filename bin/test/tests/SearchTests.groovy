@@ -12,14 +12,14 @@ class SearchTests extends BaseTest {
                     .execSearch(product);
 
         then:
-            searchPage.resultsCount() >= 1
+            searchPage.resultsCount(true) >= 1
     }
 
     def "should_not_return_non_existent_products"() {
         expect:
             homePage.load()
                     .execSearch(searchTerm)
-                    .resultsCount() == 0;
+                    .resultsCount(false) == 0;
 
         where:
             searchTerm | _

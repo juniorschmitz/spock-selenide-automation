@@ -8,8 +8,7 @@ import static com.codeborne.selenide.Selenide.$
 class RegistrationPage {
     private SelenideElement formCreateAccount = $('form#account-creation_form');
 
-    def hasDisplayed() {
+    def shouldBeDisplayed() {
         formCreateAccount.shouldBe(Condition.visible);
-        return formCreateAccount.is(Condition.visible);
     }
 }

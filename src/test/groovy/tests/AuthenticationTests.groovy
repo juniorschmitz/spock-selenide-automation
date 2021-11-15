@@ -9,7 +9,7 @@ class AuthenticationTests extends BaseTest {
                     .accessAuthenticationPage();
 
         then:
-            loginPage.hasDisplayed() == true
+            loginPage.shouldBeDisplayed();
     }
 
     def "should_access_registration_page"() {
@@ -19,7 +19,7 @@ class AuthenticationTests extends BaseTest {
                     .accessRegistrationPage();
 
         then:
-            registrationPage.hasDisplayed() == true;
+            registrationPage.shouldBeDisplayed();
     }
 
     def "should_login"() {
@@ -29,6 +29,6 @@ class AuthenticationTests extends BaseTest {
                     .loginWith('potato@testezap.com', '123456&');
 
         then:
-            myAccountPage.isLoggedIn() == true;
+            myAccountPage.shouldBeLoggedIn();
     }
 }

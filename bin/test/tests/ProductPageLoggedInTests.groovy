@@ -19,7 +19,7 @@ public class ProductPageLoggedInTests extends BaseTest {
                 .accessProductPage();
 
         then:
-            productPage.hasDisplayed() == true;
+            productPage.shouldBeDisplayed();
     }
 
     def "should_be_able_to_add_product_to_cart"() {
@@ -33,6 +33,6 @@ public class ProductPageLoggedInTests extends BaseTest {
                 .addProductToCart();
 
         then:
-            productPage.hasAddedProductToCart() == true;
+            productPage.hasAddedProductToCart();
     }
 }

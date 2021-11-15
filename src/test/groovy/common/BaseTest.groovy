@@ -12,10 +12,12 @@ import pages.LoginPage
 import pages.MyAccountPage
 import pages.ProductPage
 import pages.RegistrationPage
+import pages.SearchPage
 import spock.lang.Specification
 
 class BaseTest extends Specification {
     protected static HomePage homePage;
+    protected static SearchPage searchPage;
     protected static LoginPage loginPage;
     protected static RegistrationPage registrationPage;
     protected static MyAccountPage myAccountPage;
@@ -30,6 +32,7 @@ class BaseTest extends Specification {
         Configuration.timeout = 10000;
 
         homePage = new HomePage();
+        searchPage = new SearchPage();
         loginPage = new LoginPage();
         registrationPage = new RegistrationPage();
         myAccountPage = new MyAccountPage();

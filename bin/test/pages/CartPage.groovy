@@ -14,9 +14,8 @@ class CartPage {
     private SelenideElement btnDecreaseQuantity = $('i.icon-minus');
     private SelenideElement quantityProduct = $('.cart_quantity_input');
 
-    def hasDisplayed() {
-        btnProceedToCheckout.shouldBe(Condition.visible)
-        return btnProceedToCheckout.is(Condition.visible);
+    def shouldBeDisplayed() {
+        btnProceedToCheckout.shouldBe(Condition.visible);
     }
 
     def removeProduct() {
@@ -26,7 +25,6 @@ class CartPage {
 
     def hasDeletedProduct() {
         messageDeletedProduct.shouldHave(Condition.exactText('Your shopping cart is empty.'));
-        return messageDeletedProduct.text().contains('Your shopping cart is empty.');
     }
 
     def increaseQuantity() {
@@ -37,8 +35,9 @@ class CartPage {
     }
 
     def decreaseQuantity() {
-        def expectedQuantity = quantityProduct.value().toInteger() - 1;
+        def expectedQuantity = quantityProduct.val().toInteger() - 1;
         btnDecreaseQuantity.click();
+        sleep(1000);
         if(!messageDeletedProduct.is(Condition.visible)) {
             quantityProduct.shouldHave(Condition.exactValue(expectedQuantity.toString()));
         }
@@ -47,6 +46,5 @@ class CartPage {
 
     def hasChangedQuantity(expectedQuantity) {
         quantityProduct.shouldHave(Condition.exactValue(expectedQuantity));
-        return quantityProduct.text().contains(expectedQuantity);
     }
 }
