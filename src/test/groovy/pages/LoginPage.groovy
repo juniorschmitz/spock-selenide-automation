@@ -12,8 +12,9 @@ class LoginPage {
     private SelenideElement inputNewClientEmail = $('#email_create');
     private SelenideElement btnNewClient = $('#SubmitCreate');
 
-    def hasDisplayed() {
-        return inputLogin.is(Condition.visible) && inputPassword.is(Condition.visible) && btnLogin.is(Condition.visible);
+    def shouldBeDisplayed() {
+        btnLogin.shouldBe(Condition.visible);
+        inputLogin.is(Condition.visible) && inputPassword.is(Condition.visible) && btnLogin.is(Condition.visible);
     }
 
     def accessRegistrationPage() {

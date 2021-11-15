@@ -1,1 +1,15 @@
-search_product: "shirt"
+search_product: "dress"
+search_product_2: "blouse"
+search_product_3: "shirt"
+valid_user:
+  email: "potato@testezap.com"
+  password: "123456&"
+valid_cart_user:
+  email: "potato2@testezap.com"
+  password: "123456&"
+valid_product_user:
+  email: "potato3@testezap.com"
+  password: "123456&"
+valid_checkout_user:
+  email: "potato4@testezap.com"
+  password: "123456&"

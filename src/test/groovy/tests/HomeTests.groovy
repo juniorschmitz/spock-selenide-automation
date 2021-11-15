@@ -1,20 +1,13 @@
 package tests
 
-import pages.*
-import spock.lang.Specification
+import common.BaseTest
 
-class HomeTests extends Specification {
-    private HomePage homePage;
-
-    def setup() {
-        homePage = new HomePage();
-    }
-
+class HomeTests extends BaseTest {
     def "should_access_home"() {
         when:
             homePage.load();
 
         then:
-            homePage.hasDisplayed() == true;
+            homePage.shouldBeDisplayed();
     }
 }

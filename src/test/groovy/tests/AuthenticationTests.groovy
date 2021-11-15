@@ -1,32 +1,15 @@
 package tests
 
+import common.BaseTest
 
-import pages.LoginPage
-import pages.HomePage
-import pages.MyAccountPage
-import pages.RegistrationPage
-import spock.lang.Specification
-
-class AuthenticationTests extends Specification {
-    private HomePage homePage;
-    private LoginPage loginPage;
-    private RegistrationPage registrationPage;
-    private MyAccountPage myAccountPage;
-
-    def setup() {
-        homePage = new HomePage();
-        loginPage = new LoginPage();
-        registrationPage = new RegistrationPage();
-        myAccountPage = new MyAccountPage();
-    }
-
+class AuthenticationTests extends BaseTest {
     def "should_access_login_page"() {
         when:
             homePage.load()
                     .accessAuthenticationPage();
 
         then:
-            loginPage.hasDisplayed() == true
+            loginPage.shouldBeDisplayed();
     }
 
     def "should_access_registration_page"() {
@@ -36,16 +19,19 @@ class AuthenticationTests extends Specification {
                     .accessRegistrationPage();
 
         then:
-            registrationPage.hasDisplayed() == true;
+            registrationPage.shouldBeDisplayed();
     }
 
     def "should_login"() {
+        given:
+            def user = staticData.getData('valid_user');
+
         when:
             homePage.load()
                     .accessAuthenticationPage()
-                    .loginWith('potato@testezap.com', '123456&');
+                    .loginWith(user['email'], user['password']);
 
         then:
-            myAccountPage.isLoggedIn() == true;
+            myAccountPage.shouldBeLoggedIn();
     }
 }

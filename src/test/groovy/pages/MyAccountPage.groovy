@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$
 class MyAccountPage {
     private SelenideElement infoAccount = $('.info-account');
 
-    def isLoggedIn() {
-        return infoAccount.is(Condition.visible);
+    def shouldBeLoggedIn() {
+        infoAccount.shouldBe(Condition.visible);
     }
 }
